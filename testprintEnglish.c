@@ -37,7 +37,7 @@ testprintEnglish()
     printf( "\nTesting with value 1 - should print:\n"
 	    "One\n" );
 
-    printEnglish( 1 );
+    printEnglish( 0123 );
     printf( "\n" );
 
 
