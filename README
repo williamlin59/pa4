@@ -1,0 +1,130 @@
+/*
+ * Filename: README
+ * Author: Songjun Lin
+ * Userid: cs30xhy
+ * Date: 24/11/2014
+ */
+
+ Description
+ -----------
+ This simple programme takes user input or file input. Set the flag based
+ on the flag sign that user input captured by geopt. then the actual value
+ will be processed based on the flag and correspond form will be printed
+ out. The form include base from 2 to 36. float point form, english form.
+ Full error checking will be applied during each stage of the entire
+ programme
+
+How to compile
+--------------
+To compile this program, simply navigate to the directory containing the
+ source files for PA3 (which should include the Makefile) and type 'make'.
+ 
+How to run
+ ----------
+To run the program from stdin mode, type the executable name plus the flag
+info ( -f for file, -h for help, -o for specify out put base -i for 
+specify input base, -b for float point mode) plus argument as required
+in -h.
+Alternatively, type executable name+ file name to turn to
+file readin mode
+For example: 
+
+./pa3
+
+./pa3 -f input
+ 
+Normal output
+-------------
+Normal output is printed to stdout.  An example of normal output would be
+the following:    
+
+Abno30xyz@ieng9]:pa3$ ./pa3 -e -o 10 -i 36 10 CSE30
+
+10
+three six 
+36
+		  
+CSE30
+two one four eight zero zero one two 
+21480012
+-------------
+Abnormal output is printed to stderr.  If lack of arument:
+
+30xhy@ieng9]:pa3:521$ ./pa3 -h
+Usage: ./pa3 [-ebh] [-i input_base] [-o output_base(s)] -f input_file | numbers
+        -e -- print number in english
+	-b -- print floating point number (if floating point) in binary
+	-h -- this help/usage message
+
+Testing
+------
+
+This program was tested by 6 unit test script:
+
+testprintEnglish.c
+testprintFPBinary.c
+testprintBase.c
+testprocessIntToken.c
+testprocessFPToken.c
+testprintIntBinary.c
+
+each test script is in charge of one certain files
+Also output value of this programme has been double checked
+with pa3test test programe.
+
+	
+Questions
+---------
+
+
+ 1) What key combination can you use to terminate a running program?
+
+	Ctrl-D / Ctrl-C
+
+ 2) What key combination can you use to suspend a running program?
+   What's the difference between terminating and suspending a program?
+
+   Ctrl-Z suspend a runnin gprogram
+   Stop program is killing process which means the process will be 
+   termianted instantly and can't recover it.
+   suspend the programme is kinda like pause the program. you can
+   resume it at the back by print bg on command line. this allows the
+   suspended programme run  in the background
+
+ 3) What key combination can you use to stop transfer to current terminal? 
+ How do you resume transfer to current terminal? 
+ (This is useful when your terminal stops responding!)
+
+ 	Ctrl-s stop the transfer to the terminal
+
+	Ctrl-q resume the transfer to the current terminal
+
+ 4) In a linux shell, how would you list all
+ files in your current working directory (including hidden files)?
+ typ say you just ran the following command 
+ (don't worry too much about what it's doing):
+ cs30xyz$ grep August BoringReports.txt
+ | sed -e 's/August[ \t]*//' > August_BoringReports.txt			
+Without retyping or using the arrow keys,
+how could you quickly run the same command again with all
+instances of "August" replaced with "September"? 
+
+ ^August^September^:&
+
+
+ 5) Say you are editing a file in vim.
+ You have a variable named foo in your code,
+ but you don't like the name foo anymore and
+ you want to replace all variables named foo with bar.
+ How can you do this from Command Mode in vim?
+ [Note: There may be multiple ways to do this.] 
+
+:%s/foo/bar/g
+This command means find all string foo in the file and 
+replace it with string bar.
+
+
+
+
+
+

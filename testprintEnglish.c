@@ -1,7 +1,7 @@
 /*
- * Unit Test for printIntBinary.s
+ * Unit Test for printEnglish.s
  *
- * void printIntBinary( long num );
+ * void printEnglish( long num );
  *
  * Print num as binary with a space between every 4 bits. 
  */
@@ -15,10 +15,10 @@ void
 testprintEnglish()
 {
 
-    printf( "Testing printIntBinary()\n\n" );
+    printf( "Testing printEnglish()\n\n" );
 
     printf( "First line in each group below is the *expected* output.\n" );
-    printf( "Second line in each group is what *printIntBinary* outputs.\n");
+    printf( "Second line in each group is what *printEnglish* outputs.\n");
     printf( "They should match exactly!\n" );
 
     /*
@@ -34,10 +34,10 @@ testprintEnglish()
     /*
      * Test with 1.
      */
-    printf( "\nTesting with value 1 - should print:\n"
-	    "One\n" );
+    printf( "\nTesting with value 123 - should print:\n"
+	    "One Two Three\n" );
 
-    printEnglish( 0123 );
+    printEnglish( 123 );
     printf( "\n" );
 
 
@@ -55,9 +55,9 @@ testprintEnglish()
      * Test with LONG_MAX.
      */
     printf( "\nTesting with value 123 - should print:\n"
-	    "One Two Three\n" );
+	    "One Two Three Four Five\n" );
 
-    printEnglish( 123 );
+    printEnglish( 12345 );
     printf( "\n" );
 
 
@@ -93,47 +93,7 @@ testprintEnglish()
     printf( "\n" );
 
 
-    /*
-     * You can use the Unix command bc (basic calculator) for more.
-     *
-     * % bc
-     * obase=2
-     * 1772454945
-     * 1101001101001011000010000100001
-     * ^D  <Control>-D
-     */
-
-    /*
-     * Cycle thru power of 2 values shift 1 bit left all the way across.
-     * Then set all bits to 1 and shift a 0 bit right all the way across.
-     *
-     */
-
-   /* {
-      unsigned long int i;
-
-      printf( "\nCycle a 1 bit across right to left:\n" );
-      for( i = 1; i != 0; i = i << 1 )
-      {
-	printf( "%11ld\t", i );
-	printIntBinary( i );
-	printf( "\n" );
-      }
-
-      printf( "\nSet all bits to 1 and shift 0's left to right:\n" );
-      for( i = -1; i != 0; i = i >> 1 )
-      {
-	printf( "%11ld\t", i );
-	printIntBinary( i );
-	printf( "\n" );
-      }
-
-    }
-
-
-    printf( "\n\nFinished running tests on printIntBinary()\n" );
-*/
-}
+     }
 
 int
 main()

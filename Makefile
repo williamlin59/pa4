@@ -95,13 +95,36 @@ runtestprintIntBinary: testprintIntBinary
 # Add your Unit Tests here.
 
 
-testprintEnglish: test.h pa3.h testprintEnglish.c printEnglish.s
-	@echo "Compiling testprintEnglish.c"
-	gcc -g -o testprintEnglish testprintEnglish.c printEnglish.s
+testprintBase: test.h pa3.h testprintBase.c printBase.s
+	@echo "Compiling testprintBase.c"
+	gcc -g -o testprintBase testprintBase.c printBase.s
 	@echo "Done."
 
 
 
 runtestprintEnglish: testprintEnglish
 	@echo "Running testprintEnglish"
-	@./testprintEnglish
+	@./testprintEnglishi
+
+
+testprintEnglish: test.h pa3.h testprintEnglish.c printEnglish.s
+	@echo "Compiling testprintEnglish.c"
+	gcc -g -o testprintEnglish testprintEnglish.c printEnglish.s
+	@echo "Done."
+
+testprintFPBinary: test.h pa3.h testprintFPBinary.c printFPBinary.s
+	@echo "Compiling testprintFPBinary.c"
+	gcc -g -o testprintFPBinary testprintFPBinary.c printFPBinary.s
+	@echo "Done."
+
+testprocessIntToken: test.h pa3.h testprocessIntToken.c processIntToken.c
+	@echo "Compiling testprocessIntToken.c"
+	gcc -g -o testprocessIntToken testprocessIntToken.c processIntToken.c printBase.s printIntBinary.s strToLong.s printEnglish.s 
+	@echo "Done."
+
+testprocessFPToken: test.h pa3.h testprocessFPToken.c processFPToken.c
+	@echo "Compiling testprocessFPToken.c"
+	gcc -g -o testprocessFPToken testprocessFPToken.c processFPToken.c  printFPBinary.s strToLong.s printEnglish.s 
+	@echo "Done."
+
+

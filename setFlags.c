@@ -116,7 +116,7 @@ struct argsInfo setFlags( int argc, char* argv[] ){
          /*if errno is EINVAL*/
          if(errno==EINVAL){
             /*error message*/
-            fprintf(stderr,STR_INBASE_ENDPTR_ERR,tempInputBase);
+            (void)fprintf(stderr,STR_INBASE_ENDPTR_ERR,tempInputBase);
             /*set errno to 0*/
             errno =0;
             /*set h mask to mode*/
@@ -136,11 +136,14 @@ struct argsInfo setFlags( int argc, char* argv[] ){
          /*if it passes all evaluation*/
          else{
               /*check the range*/
-              int inputRangeValidation = checkRange(inputBaseNumber,BASE_MIN,BASE_MAX);
+              int inputRangeValidation =
+              checkRange(inputBaseNumber,BASE_MIN,BASE_MAX);
               /*if it's not in the range*/
               if(inputRangeValidation == 0){
                 /*error message*/
-                fprintf(stderr,STR_INBASE_BAD_RANGE,inputBaseNumber,BASE_MIN,BASE_MAX); 
+                (void)fprintf
+                (stderr,STR_INBASE_BAD_RANGE,
+                inputBaseNumber,BASE_MIN,BASE_MAX); 
                 /*set h_flag mask to mode*/
                 argsInfo.mode =argsInfo.mode | H_FLAG_MASK;
               }
@@ -171,7 +174,7 @@ struct argsInfo setFlags( int argc, char* argv[] ){
               /*errno is EINVAL*/
               if(errno==EINVAL){
               /*error message*/
-                fprintf(stderr,STR_OUTBASE_ENDPTR_ERR,token);
+               (void) fprintf(stderr,STR_OUTBASE_ENDPTR_ERR,token);
                 /*set errno to 0*/
                 errno = 0;
                 /*set H_FLAG_MASK to mode*/
@@ -191,11 +194,13 @@ struct argsInfo setFlags( int argc, char* argv[] ){
               /*passed all evaluation*/
               else{
                 /*check range*/
-                int outputRangeValidation = checkRange(outputBaseNumber,BASE_MIN,BASE_MAX);
+                int outputRangeValidation = 
+                checkRange(outputBaseNumber,BASE_MIN,BASE_MAX);
                 /*if it's not within range*/
                 if(outputRangeValidation ==0){
                     /*error message*/
-                    fprintf(stderr,STR_OUTBASE_BAD_RANGE,outputBaseNumber,BASE_MIN,BASE_MAX);
+                    (void)fprintf(stderr,
+                    STR_OUTBASE_BAD_RANGE,outputBaseNumber,BASE_MIN,BASE_MAX);
                     /*set h mask to mode*/
                     argsInfo.mode =argsInfo.mode | H_FLAG_MASK;
                     break;
@@ -209,9 +214,9 @@ struct argsInfo setFlags( int argc, char* argv[] ){
               }  
          }
          /*output base equals to output pattern*/
-         argsInfo.outputBases = outputPattern;
-         if(argsInfo.mode & H_FLAG_MASK !=H_FLAG_MASK){
-           /* argsInfo.outputBases = outputPattern;*/  
+        /* argsInfo.outputBases = outputPattern;*/
+         if((argsInfo.mode & H_FLAG_MASK) !=H_FLAG_MASK){
+            argsInfo.outputBases = outputPattern;  
             argsInfo.mode = argsInfo.mode | OUTPUT_MASK;
          }
   } 
@@ -222,7 +227,7 @@ struct argsInfo setFlags( int argc, char* argv[] ){
          /*if mode is greater than h mask*/
          if(  argsInfo.mode> H_FLAG_MASK ){
             /*error message*/
-            fprintf(stderr,STR_NO_INPUT_ERR);
+            (void)fprintf(stderr,STR_NO_INPUT_ERR);
          }
     }
     /*if i is not mentioned*/
@@ -234,12 +239,4 @@ struct argsInfo setFlags( int argc, char* argv[] ){
     /*return argsInfo*/
     return argsInfo;
 }
-
-/*int main (int argc, char *argv[]){
-    struct argsInfo temp= setFlags(argc,argv);
-    printf("%lld\n",temp.outputBases);
-    printf("%d\n",temp.inputBase);
-    printf("%d\n",temp.mode);
-    return 0;
-}*/
 

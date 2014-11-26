@@ -17,30 +17,30 @@
 BASE= 10			      ! declare constant base 10	
 BYTE=4				      ! declare constant bytes long 4
 One:
-	.asciz "One" 		      !label for "One"
+	.asciz "one" 		      !label for "One"
 Two:
-	.asciz "Two"		      !	label for "Two"
+	.asciz "two"		      !	label for "Two"
 Three:
-	.asciz "Three"		      ! label for "Three"	
+	.asciz "three"		      ! label for "Three"	
 Four:
-	.asciz "Four"		      ! label for "Four"
+	.asciz "four"		      ! label for "Four"
 Five:
-	.asciz "Five"		      ! label for "Five"
+	.asciz "five"		      ! label for "Five"
 Six:
-	.asciz "Six"			! label for "Six"
+	.asciz "six"			! label for "Six"
 Seven:
-	.asciz "Seven"		      ! label for "Seven"
+	.asciz "seven"		      ! label for "Seven"
 Eight:
-	.asciz "Eight"			! label for "Eight"
+	.asciz "eight"			! label for "Eight"
 Nine:
-	.asciz "Nine"			! label for "Nine"
+	.asciz "nine"			! label for "Nine"
 Zero:
-	.asciz "Zero"			! label for "Zero"
+	.asciz "zero"			! label for "Zero"
 fmt:					! define fmt for print out format
 	.asciz "%s "			! string formate= "%s " 
-	.global Word			! delare string array word
+	.global Words			! delare string array word
 	.align 4			! alignment 4
-Word: .word Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine
+Words: .word Zero,One,Two,Three,Four,Five,Six,Seven,Eight,Nine
 					! initialize string array with each
 					! string i declared
 	.section ".text"		! declare text field
@@ -77,7 +77,7 @@ else:
 		call	.mul		   ! mulply the remainder with 4 so get teh total address it needs to move
 		nop
 	
-		set	Word,	%o1	   ! set the start point of the string array to o1	
+		set	Words,	%o1	   ! set the start point of the string array to o1	
 		add	%o1,	%o0,	%l0! move file pointer to the place
 		ld 	[%l0],	%o1	   ! dereference the value stored in the address( a pointer in an array of pointer)
 	
