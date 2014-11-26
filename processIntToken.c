@@ -93,8 +93,12 @@ void processIntToken( char *inStr, struct argsInfo info){
                     int output =input;
                     /*second digits*/
                     if(counter ==2){
+                          /*change the value to negtive*/
+                          if(inStr[0]=='-'){
+                             output = input*-1;
+                          }
                         /*print out the binary form*/
-                        printIntBinary(input);
+                        printIntBinary(output);
                         /*new line character*/
                         (void)fprintf(stdout,"\n");  
                     }
